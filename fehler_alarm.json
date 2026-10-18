@@ -1,0 +1,66 @@
+{
+  "name": "0A-00 - Github – Fehler-Alarm (Telegram)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "c9570c24-ceaa-4886-98aa-3231ad383649",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "chatidplatzhalter",
+        "text": "={{ '⚠️ Workflow fehlgeschlagen: ' + $json.workflow.name + '\\nNode: ' + ($json.execution.lastNodeExecuted || '?') + '\\nFehler: ' + ($json.execution.error?.message || 'unbekannt') + ($json.execution.url ? '\\n' + $json.execution.url : '') }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "33196388-b445-4067-a9d2-ba31d05acce4",
+      "name": "Telegram: Fehler melden",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        272,
+        0
+      ],
+      "webhookId": "6984df24-ecfe-44cb-84f8-50fb419a1eeb",
+      "credentials": {
+        "telegramApi": {
+          "id": "SCwbgkkUljSz0Rnp",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Telegram: Fehler melden",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "7cf7de94-aa65-4d65-ae29-9b0e54b5631c",
+  "meta": {
+    "instanceId": "cea9397641ae562d56adcec46bf11ce84a00e53f6e72f176aeb8f1b68fb4fc7d"
+  },
+  "nodeGroups": [],
+  "id": "UptTrXlMPWBF6QDn",
+  "tags": []
+}
