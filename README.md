@@ -75,8 +75,8 @@ Gmail → Konfiguration → Mail vorbereiten → KI-Klassifizierung → Antwort 
 
 | Datei | Inhalt |
 |---|---|
-| `bewerbungs-tracker.json` | Der Haupt-Workflow |
-| `fehler-alarm.json` | Fehlerüberwachung per Telegram |
+| `bewerbungs_tracker.json` | Der Haupt-Workflow |
+| `fehler_alarm.json` | Fehlerüberwachung per Telegram |
 | `workflow.png` | Screenshot des Workflows |
 
 ## Einrichtung
